@@ -1,0 +1,12 @@
+$list = get-content "c:\path\ComputerUpdates.txt" 
+foreach ($ip in $list) 
+{$result = Get-WmiObject Win32_PingStatus -filter "address='$IP'"
+if ($result.statuscode -eq 0)
+{
+write-host "$IP comp is up"
+}
+else
+{
+Write-host "$IP comp is down" -foregroundcolor "red"
+}
+}
