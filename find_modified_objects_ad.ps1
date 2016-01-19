@@ -1,3 +1,4 @@
-Get-WmiObject -Class Win32_IP4RouteTable  | ? { $_.destination -eq '0.0.0.0' -and $_.mask -eq '0.0.0.0'} | 
-  Sort-Object metric1 | 
-    select -expand nexthop
+
+$changeDate = New-Object DateTime(2014, 03, 11, 01, 00, 02)
+Get-ADObject -Filter 'whenChanged -gt $changeDate' -SearchBase "OU=Business,OU=Group,OU=Resource,DC=DOMAIN,DC=LOCAL" -Properties *|select CN, Modified |sort Modified |Export-Csv C:\path\Busunit.csv
+
