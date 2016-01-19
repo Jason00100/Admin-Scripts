@@ -4,7 +4,7 @@ Param([parameter(Mandatory = $true)]$SamAccountName,
 
     $SiteName="pri",
 
-    $SCCMServer="crpashsccm01.corporate.local")
+    $SCCMServer="sccm01.domain.local")
 
     $SCCMNameSpace="root\sms\site_$SiteName"
 
