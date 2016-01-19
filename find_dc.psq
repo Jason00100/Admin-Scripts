@@ -1,0 +1,10 @@
+$Forest = [System.DirectoryServices.ActiveDirectory.Forest]::GetCurrentForest()
+$Forest.Sites | % { $_.Servers } | Select Name,Domain,SiteName,OSversion 
+
+$type = get-wmiobject win32_computersystem -ComputerName comp |select -ExpandProperty Model
+if($type -like "*Virtual*"){
+Write-Output "Virtual"
+}
+  else {
+  Write-Output "Physical"
+  }
